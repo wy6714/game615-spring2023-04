@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.SceneManagement;
+using Unity.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour
     public int score;
     public int IntTimeLeft;
     public bool GameOn = false;
+    public GameObject RestartButton;
+    
+    
 
 
     // Start is called before the first frame update
@@ -32,6 +36,11 @@ public class PlayerController : MonoBehaviour
         TimeLeft = 30;
         LooseText.enabled = false;
         WinText.enabled = false;
+        GameObject RestartButton = GameObject.Find("Restart");
+        RestartButton.SetActive(false);
+        
+        
+
 
 
 
@@ -72,6 +81,7 @@ public class PlayerController : MonoBehaviour
             else if (TimeLeft > 0 && score == 7)
             {
                 WinText.enabled = true;
+                RestartButton.SetActive(true);
                 GameOn = false;
             }
             else
@@ -81,6 +91,7 @@ public class PlayerController : MonoBehaviour
                 IntTimeLeft = (int)Mathf.Round(TimeLeft);
                 TimerOn = false;
                 LooseText.enabled = true;
+                RestartButton.SetActive(true);
                 GameOn = false;
 
                 //ScoreText.text = "You lose!";

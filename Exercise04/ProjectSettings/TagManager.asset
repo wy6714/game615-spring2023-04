@@ -7,6 +7,7 @@ TagManager:
   - Target
   - hider
   - Needle
+  - Button
   layers:
   - Default
   - TransparentFX
