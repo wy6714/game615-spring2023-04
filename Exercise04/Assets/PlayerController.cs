@@ -15,8 +15,11 @@ public class PlayerController : MonoBehaviour
     public bool TimerOn = false;
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI TimerText;
+    public TextMeshProUGUI LooseText;
+    public TextMeshProUGUI WinText;
     public int score;
     public int IntTimeLeft;
+    public bool GameOn = false;
 
 
     // Start is called before the first frame update
@@ -24,7 +27,13 @@ public class PlayerController : MonoBehaviour
     {
         score = 1;
         TimerOn = true;
+        GameOn = true;
         TimeLeft = 30;
+        LooseText.enabled = false;
+        WinText.enabled = false;
+
+
+
     }
 
     // Update is called once per frame
@@ -33,11 +42,15 @@ public class PlayerController : MonoBehaviour
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
 
-        gameObject.transform.Translate(gameObject.transform.forward * Time.deltaTime * moveSpeed * vAxis, Space.World);
+        if (GameOn == true)
+        {
 
-        gameObject.transform.Rotate(0, rotateSpeed * Time.deltaTime * hAxis, 0);
+            gameObject.transform.Translate(gameObject.transform.forward * Time.deltaTime * moveSpeed * vAxis, Space.World);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+            gameObject.transform.Rotate(0, rotateSpeed * Time.deltaTime * hAxis, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)&&GameOn==true)
         {
             GameObject needle = Instantiate(Needle, shootPoint.position, shootPoint.rotation);
             Rigidbody rb = needle.GetComponent<Rigidbody>();
@@ -57,7 +70,8 @@ public class PlayerController : MonoBehaviour
             }
             else if (TimeLeft > 0 && score == 7)
             {
-                ScoreText.text = "You Win!";
+                WinText.enabled = true;
+                GameOn = false;
             }
             else
             {
@@ -65,7 +79,10 @@ public class PlayerController : MonoBehaviour
                 TimerText.text = TimeLeft.ToString();
                 IntTimeLeft = (int)Mathf.Round(TimeLeft);
                 TimerOn = false;
-                ScoreText.text = "You lose!";
+                LooseText.enabled = true;
+                GameOn = false;
+
+                //ScoreText.text = "You lose!";
 
             }
         }
