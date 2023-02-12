@@ -12,7 +12,7 @@ Fiona   Yifei
 
 ## Game
 
-[Play]() | [Source](https://github.com/wy6714/game615-spring2023-04)
+[Play](https://wy6714.github.io/game615-spring2023-04/Exercise04/play/) | [Source](https://github.com/wy6714/game615-spring2023-04)
 
 Shoot **yellow floswer** to get road clear. Collect all **6 single red flower** within the given time.  
 
