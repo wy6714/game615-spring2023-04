@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyFlower : MonoBehaviour
+public class DestroyTarget : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,9 +15,10 @@ public class DestroyFlower : MonoBehaviour
     {
         
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("hider"))
+        if (other.CompareTag("Target"))
         {
             Destroy(other.gameObject);
 

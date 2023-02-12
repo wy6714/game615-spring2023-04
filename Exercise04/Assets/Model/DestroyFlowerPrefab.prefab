@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2767883568951745699}
   - component: {fileID: -3438054950140673010}
   - component: {fileID: 1140384599002532580}
+  - component: {fileID: 5763910726454015096}
   m_Layer: 0
   m_Name: DestroyFlowerPrefab
   m_TagString: hider
@@ -142,3 +143,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.1516495, y: 6.776847, z: 5.439243}
   m_Center: {x: -2.6221786, y: 2.8884225, z: 2.4854186}
+--- !u!114 &5763910726454015096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252355242250077721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e15db8ebe9c4b4e97bb4de8076d79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

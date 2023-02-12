@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     public float rotateSpeed = 75f;
     public GameObject Needle; //slot
     public Rigidbody rb;
@@ -31,14 +32,28 @@ public class PlayerController : MonoBehaviour
         {
             GameObject needle = Instantiate(Needle, shootPoint.position, shootPoint.rotation);
             Rigidbody rb = needle.GetComponent<Rigidbody>();
-            rb.AddForce(needle.transform.forward * 1000);
+            rb.AddForce(needle.transform.forward * 5000);
             //var needleInstance = Instantiate(rb, shootPoint.position, shootPoint.rotation);
             //needleInstance.AddForce(shootPoint.forward * 1000);
-            Destroy(needle, 3f);
+            Destroy(needle, 8f);
         }
+
+
       
 
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Target"))
+        {
+            Destroy(other.gameObject);
+            
+
+        }
+
+
+    }
+
+
 }
