@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -10,12 +11,20 @@ public class PlayerController : MonoBehaviour
     public GameObject Needle; //slot
     public Rigidbody rb;
     public Transform shootPoint;
-  
+    public float TimeLeft;
+    public bool TimerOn = false;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI TimerText;
+    public int score;
+    public int IntTimeLeft;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = 1;
+        TimerOn = true;
+        TimeLeft = 30;
     }
 
     // Update is called once per frame
@@ -38,22 +47,48 @@ public class PlayerController : MonoBehaviour
             Destroy(needle, 8f);
         }
 
+        if (TimerOn)
+        {
+            if (TimeLeft > 0 && score < 7)
+            {
+                TimeLeft -= Time.deltaTime;
+                IntTimeLeft = (int)Mathf.Round(TimeLeft);
+                TimerText.text = IntTimeLeft.ToString();
+            }
+            else if (TimeLeft > 0 && score == 7)
+            {
+                ScoreText.text = "You Win!";
+            }
+            else
+            {
+                TimeLeft = 0;
+                TimerText.text = TimeLeft.ToString();
+                IntTimeLeft = (int)Mathf.Round(TimeLeft);
+                TimerOn = false;
+                ScoreText.text = "You lose!";
 
-      
+            }
+        }
+
+
+
 
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Target"))
         {
             Destroy(other.gameObject);
-            
+            ScoreText.text = score.ToString();
+            score++;
+
 
         }
 
 
     }
+
+
 
 
 }
