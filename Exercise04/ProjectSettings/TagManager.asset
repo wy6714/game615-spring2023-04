@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
+  - hider
+  - Needle
   layers:
   - Default
   - TransparentFX
