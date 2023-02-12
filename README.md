@@ -2,6 +2,14 @@
 ## Team
 Fiona   Yifei
 
+## Challenge Accomplished
+
+1. Display timer, and show lose when time runs out.
+
+2. Press **Space** can launch needle. If the needle touch the yellow flower, the flower will disappear.
+
+3. If the time over, restart Button Show up, click to start again. 
+
 ## Game
 
 [Play]() | [Source]()
