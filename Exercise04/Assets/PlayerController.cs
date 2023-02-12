@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+//using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.SceneManagement;
-using Unity.UI;
+//using Unity.UI;
 
 public class PlayerController : MonoBehaviour
 {
